@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>U.S. Civil War Timeline | USA.gov</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
+  <link rel="icon" href="https://www.usa.gov/sites/all/themes/usa/images/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Public Sans', sans-serif;
+      background-color: #ffffff;
+      color: #212121;
+    }
+
+    /* EAS Banner Styles */
+    .eas-container {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background-color: #b20000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-bottom: 4px solid #660000;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      animation: flash-border 1s infinite;
+    }
+    .eas-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      flex: 1;
+      margin: 0 1rem;
+    }
+    .eas-marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    .eas-dismiss {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      padding: 0;
+    }
+    .eas-flash {
+      width: 15px;
+      height: 15px;
+      background: #ff0000;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ff0000;
+      animation: flash 1s infinite;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes flash-border {
+      0%, 100% { border-color: #660000; }
+      50% { border-color: #ff0000; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #002D72;
+      color: white;
+      padding: 1rem;
+    }
+    .header-content {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-content img {
+      height: 60px;
+    }
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+    .header-text p {
+      margin: 0.25rem 0 0;
+      font-size: 1rem;
+    }
+
+    nav {
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ccc;
+    }
+    .nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #002D72;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1140px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      color: #002D72;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-alert {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-left: 4px solid #004080;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .social-alert strong {
+      color: #002D72;
+    }
+
+    footer {
+      background-color: #002D72;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+      margin: 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Emergency Broadcast System Banner -->
+  <div class="eas-container" role="alert" aria-live="assertive">
+    <div class="eas-flash"></div>
+    <div class="eas-marquee">
+      <span>EMERGENCY ALERT: Executive Directive 5105-A is in full effect. Martial law has been enacted in affected regions. Federal continuity protocols remain active. Comply with all curfew and movement restrictions.</span>
+    </div>
+    <button class="eas-dismiss" aria-label="Dismiss alert" onclick="dismissEAS()">✖</button>
+  </div>
+
+  <header>
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Seal_of_the_United_States_Department_of_Homeland_Security.svg/800px-Seal_of_the_United_States_Department_of_Homeland_Security.svg.png" alt="DHS Seal">
+      <div class="header-text">
+        <h1>U.S. Civil War Timeline</h1>
+        <p>Documented by the Department of Homeland Security – Office of Crisis History</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <a href="US_Civil_War_index.html">Dashboard</a>
+      <a href="US_Civil_War_Active-Region.html">Active Regions</a>
+      <a href="US_Civil_War_timeline.html">Historical Archive</a>
+      <a href="US_Civil_War_Report-incident.html">Report Incident</a>
+      <a href="US_Civil_War_Password-system.html">Federal Briefings</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>Timeline of the Second American Civil War (2028–2029)</h2>
+
+    <div class="social-alert">
+      <strong>November 5, 2028 – Contested Presidential Election</strong><br>
+      The presidential election between President Veronica Aldridge and Arthur Mark Pence concludes with no clear winner. Allegations of voter fraud and machine tampering arise in Georgia, Michigan, and Pennsylvania. Tensions escalate as partisan observers flood recount centers.
+    </div>
+
+    <div class="social-alert">
+      <strong>November 7–12, 2028 – National Guard Deployment</strong><br>
+      The federal government orders deployment of the National Guard to secure polling infrastructure. Protests intensify as radical factions reject the intervention, claiming federal overreach. Armed groups begin mobilizing in rural and suburban regions.
+    </div>
+
+    <div class="social-alert">
+      <strong>November 18, 2028 – Atlanta Confrontation</strong><br>
+      In Atlanta, Georgia, a heavily armed militia opens fire on National Guard units. Six federal soldiers are killed. The attack marks the first official act of armed insurrection. President Aldridge addresses the nation and places urban centers under temporary emergency law.
+    </div>
+
+    <div class="social-alert">
+      <strong>December 2028 – Breakdown of Federal Recognition</strong><br>
+      Several state governors refuse to comply with emergency directives. Armed militias seize municipal buildings in Alabama, Idaho, and parts of Missouri. The rule of law begins to fracture across multiple regions.
+    </div>
+
+    <div class="social-alert">
+      <strong>December 29, 2028 – Formation of the American Freedom Nation</strong><br>
+      Arthur Mark Pence formally declares the creation of the American Freedom Nation (AFN), a coalition of militias and rogue National Guard units. Pence names Donald Trump Jr. as Acting National Commander. Twelve states report active AFN activity.
+    </div>
+
+    <div class="social-alert">
+      <strong>January 3, 2029 – Executive Directive 5105-A Enacted</strong><br>
+      President Aldridge signs Executive Directive 5105-A. Federal continuity protocols are activated. Constitutional rights are suspended in designated conflict zones. Military assets are authorized for domestic deployment in support of national stability.
+    </div>
+
+    <div class="social-alert">
+      <strong>January 10–15, 2029 – Secession of the RCTF Bloc</strong><br>
+      California, Texas, and Florida announce formal secession from the Union. These states form the Republic of California, Texas, and Florida (RCTF). Nevada and Arizona align with California, while New Mexico and Oklahoma join Texas. Independent governance is declared by each.
+    </div>
+
+    <div class="social-alert">
+      <strong>February 2029 – Escalation to Urban Combat</strong><br>
+      Urban warfare begins in Detroit, Phoenix, and Orlando. Federal and insurgent forces engage in direct combat. Key infrastructure fails in contested cities. DHS and FEMA begin mass evacuation and sheltering procedures under wartime protocols.
+    </div>
+
+    <div class="social-alert">
+      <strong>March 2029 – Communications Infrastructure Collapse</strong><br>
+      Cyber and kinetic attacks target the nation’s communication grid. Major blackouts affect internet access and public utilities. Emergency broadcast systems come under military control to preserve continuity of message.
+    </div>
+
+    <div class="social-alert">
+      <strong>April 2029 – Operation HOMELAND TIDE</strong><br>
+      The Department of Defense launches Operation HOMELAND TIDE. Regular Army divisions are deployed to secure federal corridors in the Northeast, Midwest, and Pacific Northwest. Airspace in the South remains heavily contested.
+    </div>
+
+    <div class="social-alert">
+      <strong>May 2029 – Fragmentation of Factions</strong><br>
+      Independent militias begin to fracture from AFN and RCTF command structures. Factional violence increases as rival groups fight over control of transportation routes, food supplies, and fuel reserves.
+    </div>
+
+    <div class="social-alert">
+      <strong>June 2029 – Crisis Level Raised to RED</strong><br>
+      DHS escalates the National Crisis Level to RED (Level 5). Federal government retains control over key coastal regions and command zones. Several inland territories are officially designated as hostile-controlled or non-recoverable for the time being.
+    </div>
+
+<div style="margin-top: 2rem; text-align: center;">
+  <a href="US_Civil_War_index.html" style="background-color: #002D72; color: white; padding: 0.75rem 1.25rem; text-decoration: none; font-weight: bold; border-radius: 4px;">
+    Return to Main Crisis Coordination Page
+  </a>
+</div>
+  </main>
+
+  <footer>
+    U.S. Department of Homeland Security | Office of Crisis Communications<br>
+    An unofficial historical document of the United States Government. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+  </footer>
+
+  <!-- Emergency Audio Alert -->
+  <audio id="easTone" autoplay>
+    <source src="https://files.catbox.moe/hv04ys.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- JavaScript -->
+  <script>
+    function dismissEAS() {
+      const alert = document.querySelector('.eas-container');
+      if (alert) alert.style.display = 'none';
+    }
+
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('easTone');
+      if (audio) {
+        audio.play().catch(() => {
+          console.warn("Autoplay prevented by browser.");
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

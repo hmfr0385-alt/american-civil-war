@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Federal Briefings | USA.gov</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
+  <link rel="icon" href="https://www.usa.gov/sites/all/themes/usa/images/favicon.ico" type="image/x-icon">
+  <style>
+   body {
+      margin: 0;
+      font-family: 'Public Sans', sans-serif;
+      background-color: #ffffff;
+      color: #212121;
+    }
+
+    /* EAS Banner Styles */
+    .eas-container {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background-color: #b20000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-bottom: 4px solid #660000;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+      animation: flash-border 1s infinite;
+    }
+    .eas-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      flex: 1;
+      margin: 0 1rem;
+    }
+    .eas-marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+    .eas-dismiss {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      padding: 0;
+    }
+    .eas-flash {
+      width: 15px;
+      height: 15px;
+      background: #ff0000;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ff0000;
+      animation: flash 1s infinite;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes flash-border {
+      0%, 100% { border-color: #660000; }
+      50% { border-color: #ff0000; }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-100%); }
+    }
+
+    header {
+      background-color: #002D72;
+      color: white;
+      padding: 1rem;
+    }
+    .header-content {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .header-content img {
+      height: 60px;
+    }
+    .header-text {
+      flex: 1;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+    .header-text p {
+      margin: 0.25rem 0 0;
+      font-size: 1rem;
+    }
+
+    nav {
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ccc;
+    }
+    .nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.75rem 1rem;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #002D72;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 1140px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      color: #002D72;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .briefing-container {
+      max-width: 1140px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .briefing-header {
+      font-size: 1.5rem;
+      color: #002D72;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    .briefing-date {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #4A4A4A;
+    }
+    .briefing-content {
+      background-color: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      background-color: #002D72;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.875rem;
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+      margin: 0 0.5rem;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <!-- Emergency Broadcast System -->
+  <div class="eas-container" role="alert" aria-live="assertive">
+    <div class="eas-flash"></div>
+    <div class="eas-marquee">
+      <span>⚠️ EMERGENCY ALERT: All constitutional rights are temporarily suspended under Executive Directive 5105-A. Full federal authority has been enacted. Remain in place and await official instructions.</span>
+    </div>
+    <button class="eas-dismiss" aria-label="Dismiss alert" onclick="dismissEAS()">✖</button>
+  </div>
+
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Seal_of_the_United_States_Department_of_Homeland_Security.svg/800px-Seal_of_the_United_States_Department_of_Homeland_Security.svg.png" alt="DHS Seal">
+      <div class="header-text">
+        <h1>Federal Briefings</h1>
+        <p>In close cooperation with the Department of Defense</p>
+        </div>
+    </div>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <div class="nav-container">
+      <a href="US_Civil_War_index.html">Dashboard</a>
+      <a href="US_Civil_War_Active-Region.html">Active Regions</a>
+      <a href="US_Civil_War_timeline.html">Historical Timeline</a>
+      <a href="US_Civil_War_Report-incident.html">Report Incident</a>
+      <a href="US_Civil_War_Password-system.html">Federal Briefings</a>
+    </div>
+
+  </nav>
+
+  <!-- Briefing Container -->
+  <div class="briefing-container">
+    <div class="briefing-header">Federal Briefing: January 29, 2029</div>
+    <div class="briefing-date">Last updated: January 29, 2029</div>
+
+    <div class="briefing-content">
+      <h2>Current Situation</h2>
+      <p>The situation across the United States continues to be highly volatile, with several regions in active conflict. As of the latest reports, National Guard units have been deployed in key areas to maintain order. The curfew has been extended to 24 hours in most high-risk zones, with military operations underway to suppress hostile groups.</p>
+      <h3>Key Updates:</h3>
+      <ul>
+        <li>Full mobilization continues under Executive Directive 5105-A.</li>
+        <li>New curfew in effect across multiple states. 24-hour lockdown initiated in select regions.</li>
+        <li>FEMA operations in full force, providing critical relief in most impacted areas.</li>
+      </ul>
+      <h3>Public Instructions:</h3>
+      <ul>
+        <li>Stay indoors during the curfew (8 PM to 6 AM local time).</li>
+        <li>Call 1-800-FED-SAFE for emergency assistance and reporting incidents.</li>
+        <li>Sign up for regional alerts via Ready.gov to receive updated instructions.</li>
+      </ul>
+    </div>
+
+    <div class="briefing-header">Federal Briefing: January 28, 2029</div>
+    <div class="briefing-date">Last updated: January 28, 2029</div>
+
+    <div class="briefing-content">
+      <h2>Current Situation</h2>
+      <p>Following the escalation of armed insurgencies across the nation, federal authorities have begun consolidating forces in strategic locations. The American Freedom Nation (AFN) has claimed control over several urban centers, while the Department of Homeland Security continues to assess the situation.</p>
+      <h3>Key Updates:</h3>
+      <ul>
+        <li>President Veronica Aldridge has called for an emergency session of Congress to discuss further actions.</li>
+        <li>Increased intelligence operations underway to locate and disrupt insurgent cells.</li>
+        <li>Temporary suspension of postal services in hostile zones to prevent insurgent movement.</li>
+      </ul>
+      <h3>Public Instructions:</h3>
+      <ul>
+        <li>Remain vigilant and avoid traveling to high-risk areas.</li>
+        <li>Secure all windows and doors during curfew hours. Follow local directives from federal agents.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    U.S. Department of Homeland Security | Office of Crisis Communications<br>
+    An official website of the United States Government. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+  </footer>
+
+</body>
+</html>

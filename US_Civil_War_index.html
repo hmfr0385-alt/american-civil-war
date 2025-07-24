@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>U.S. Crisis Coordination Center | USA.gov</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap">
+  <link rel="icon" href="https://www.usa.gov/sites/all/themes/usa/images/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Public Sans', sans-serif;
+      background-color: #ffffff;
+      color: #212121;
+    }.gov-banner {
+  background-color: #f1f1f1;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.eas-container {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #b20000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-bottom: 4px solid #660000;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  animation: flash-border 1s infinite;
+}
+.eas-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
+  margin: 0 1rem;
+}
+.eas-marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+}
+.eas-dismiss {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  padding: 0;
+}
+.eas-flash {
+  width: 15px;
+  height: 15px;
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+  animation: flash 1s infinite;
+}
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@keyframes flash-border {
+  0%, 100% { border-color: #660000; }
+  50% { border-color: #ff0000; }
+}
+@keyframes marquee {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
+}
+
+header {
+  background-color: #002D72;
+  color: white;
+  padding: 1rem;
+}
+.header-content {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header-content img {
+  height: 60px;
+}
+.header-text {
+  flex: 1;
+}
+.header-text h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+.header-text p {
+  margin: 0.25rem 0 0;
+  font-size: 1rem;
+}
+
+nav {
+  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc;
+}
+.nav-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+}
+nav a {
+  text-decoration: none;
+  color: #002D72;
+  font-weight: 600;
+}
+
+main {
+  max-width: 1140px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.curfew-timer {
+  background-color: #ffe0e0;
+  border: 2px solid #b20000;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #b20000;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 6px;
+}
+
+h2 {
+  color: #002D72;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+h3 {
+  color: #004080;
+  font-size: 1.2rem;
+}
+blockquote {
+  border-left: 4px solid #004080;
+  background: #f6f9fc;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+th {
+  background-color: #e5e5e5;
+  text-align: left;
+}
+
+ul {
+  padding-left: 1.25rem;
+  margin-top: 1rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: #0071bc;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  cursor: pointer;
+}
+
+.login-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75);
+}
+.login-modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2rem;
+  border: 4px solid #002D72;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+.login-modal-content h2 {
+  margin-top: 0;
+  color: #002D72;
+}
+.login-modal-content input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  font-size: 1rem;
+}
+.login-modal-content button {
+  padding: 0.5rem 1rem;
+  background-color: #002D72;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #888;
+}
+
+footer {
+  background-color: #002D72;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.875rem;
+}
+footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  margin: 0 0.5rem;
+}
+
+.social-alert {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-left: 4px solid #004080;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.social-alert strong {
+  color: #002D72;
+}
+.tweet-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 8px;
+  max-width: 600px;
+}
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tweet-header img {
+  width: 48px;
+  border-radius: 50%;
+}
+.tweet-content {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.tweet-timestamp {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Emergency Broadcast System -->
+  <div class="eas-container" role="alert" aria-live="assertive">
+    <div class="eas-flash"></div>
+    <div class="eas-marquee">
+      <span>⚠️ EMERGENCY ALERT: All constitutional rights are temporarily suspended under Executive Directive 5105-A. Full federal authority has been enacted. Remain in place and await official instructions.</span>
+    </div>
+    <button class="eas-dismiss" aria-label="Dismiss alert" onclick="dismissEAS()">✖</button>
+  </div> <header>
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Seal_of_the_United_States_Department_of_Homeland_Security.svg/800px-Seal_of_the_United_States_Department_of_Homeland_Security.svg.png" alt="DHS Seal">
+      <div class="header-text">
+        <h1>U.S. Crisis Coordination Center</h1>
+        <p>Managed by the Department of Homeland Security</p>
+      </div>
+    </div>
+  </header> <nav>
+    <div class="nav-container">
+      <a href="US_Civil_War_index.html">Dashboard</a>
+      <a href="US_Civil_War_Active-Region.html">Active Regions</a>
+      <a href="US_Civil_War_timeline.html">Historical Timeline</a>
+      <a href="US_Civil_War_Report-incident.html">Report Incident</a>
+      <a href="US_Civil_War_Password-system.html">Federal Briefings</a>
+    </div>
+  </nav> <main>
+    <div class="curfew-timer">
+      ⏳ <strong>Curfew Begins In:</strong> <span id="countdown">Loading...</span>
+    </div><h2>National Crisis Level: RED (Level 5 - Full Mobilization)</h2>
+<p>The United States Government continues to operate under Executive Directive 5105-A. Full federal continuity has been activated to protect civilian infrastructure, federal authority, and public safety amid ongoing armed domestic conflict.</p>
+
+<h3>Presidential Address – January 2029</h3>
+<blockquote>
+  "We are Americans first. Our union has faced darkness before—and prevailed. Let this be our moment of resolve, not surrender. The Constitution shall stand. The people will endure."<br><br>
+  — President Veronica Aldridge
+</blockquote>
+
+<h3>Federal Services Overview</h3>
+<table>
+  <tr><th>Agency</th><th>Status</th><th>Details</th></tr>
+  <tr><td>Social Security Administration</td><td>Active</td><td>Remote claims processing active</td></tr>
+  <tr><td>IRS</td><td>Operational with Delays</td><td>eFiling available; processing may take longer</td></tr>
+  <tr><td>Veterans Affairs</td><td>Operational</td><td>Priority to wounded personnel and families</td></tr>
+  <tr><td>FEMA</td><td>Active</td><td>Coordinating mass shelter and logistics in affected zones</td></tr>
+  <tr><td>Postal Service</td><td>Suspended in Hostile Zones</td><td>Mail redirection in secure regions</td></tr>
+</table>
+
+<h3>Domestic Hostile Groups</h3>
+<ul>
+  <li><strong>American Freedom Nation (AFN)</strong> — Armed insurgents with declared opposition to federal continuity.</li>
+  <li><strong>RCTF Coalition</strong> — Self-governed republics operating outside constitutional bounds.</li>
+  <li><strong>State Militias</strong> — Paramilitary groups not recognized by federal authority.</li>
+</ul>
+
+<h3>Public Instructions</h3>
+<ul>
+  <li>Remain indoors during curfew hours (8 PM to 6 AM local time).</li>
+  <li>Use secure lines for emergency calls: 1-800-FED-SAFE</li>
+  <li>Sign up for region-specific alerts via <a href="#">Ready.gov</a></li>
+</ul>
+
+<a href="#" class="button">View Secure Crisis Map</a>
+<a href="#" class="button" onclick="openLogin()">Federal Agent Login</a>
+
+<h3>Executive Directive 5105-A</h3>
+<p><strong>Text of Directive:</strong></p>
+<blockquote>
+  EXECUTIVE DIRECTIVE 5105-A<br><br>
+  EFFECTIVE: IMMEDIATELY<br><br>
+  Pursuant to Article II powers and Section 42 of the National Continuity Framework, the President hereby enacts full federal continuity under Emergency Continuity Protocol Alpha (ECPA).<br><br>
+  1. Civilian federal authorities are hereby superseded by the Crisis Continuity Authority (CCA), operating under Department of Homeland Security command and Presidential oversight.<br>
+  2. Deployment of federal military units and intelligence assets is authorized in all domestic zones exhibiting signs of disruption, sedition, or open revolt.<br>
+  3. Constitutionally guaranteed rights, including habeas corpus, assembly, and press freedoms, are hereby suspended in affected regions pending resolution of national threat indicators.<br>
+  4. National broadcast, communications, and transportation networks are under temporary federal command to ensure continuity of message, logistics, and emergency response.<br>
+  5. All state governors and local officials are ordered to coordinate with Federal Regional Authorities or face classification under Section 12: Non-Cooperative Entity.<br><br>
+  This directive remains in effect until expressly revoked in writing by Presidential or Congressional authority.<br><br>
+  — Veronica Aldridge, President of the United States
+</blockquote>
+
+<h3>Official Social Media Monitoring</h3>
+<div style="background:#f1f1f1; border-left:4px solid #0071bc; padding:1rem; margin:1rem 0;">
+  <strong>🕊️ DoD (@DeptofDefense)</strong><br>
+  <em>10m ago</em><br>
+  ⛔ Martial law protocol enacted in Zones 3A–3F. Air mobility restricted. <a href="#">#Directive5105A</a>
+</div>
+<div style="background:#f1f1f1; border-left:4px solid #f44336; padding:1rem; margin:1rem 0;">
+  <strong>🛑 FEMA (@fema)</strong><br>
+  <em>25m ago</em><br>
+  Federal shelters remain open. Civilians advised to remain indoors after 20:00. Curfew enforced. #NationalEmergency
+</div>
+<div style="background:#f1f1f1; border-left:4px solid #4caf50; padding:1rem; margin:1rem 0;">
+  <strong>🔒 DHS (@DHSgov)</strong><br>
+  <em>35m ago</em><br>
+  DHS agents coordinating checkpoints at major state lines. Avoid non-essential travel. #HomelandAlert
+</div>
+<div style="background:#f1f1f1; border-left:4px solid #673ab7; padding:1rem; margin:1rem 0;">
+  <strong>🦠 CDC (@CDCgov)</strong><br>
+  <em>1h ago</em><br>
+  Emergency clinics operational in disruption zones. Bring ID and federal-issued access badge if available. #PublicSafety
+</div>
+
+  </main> <footer>
+    U.S. Department of Homeland Security | Office of Crisis Communications<br>
+    An official website of the United States Government. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+  </footer> <div class="login-modal" id="loginModal">
+    <div class="login-modal-content">
+      <span class="close-modal" onclick="closeLogin()">×</span>
+      <h2>Federal Agent Authentication</h2>
+      <input type="text" placeholder="Agent ID" required />
+      <input type="password" placeholder="Access Code" required />
+      <button onclick="fakeLogin()">Authenticate</button>
+      <p style="margin-top: 1rem; font-size: 0.9rem;">⚠️ Access restricted. All activity is logged.</p>
+    </div>
+  </div> <audio id="easTone" autoplay>
+    <source src="https://files.catbox.moe/hv04ys.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio> <script>
+    function dismissEAS() {
+      const alert = document.querySelector('.eas-container');
+      if (alert) alert.style.display = 'none';
+      playEASAudio(); // Lancer l'audio dès que l'alerte est fermée
+    }
+
+    function playEASAudio() {
+      const audio = document.getElementById('easTone');
+      if (audio) {
+        audio.play().catch(() => {
+          console.warn("Autoplay prevented by browser.");
+        });
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const curfew = new Date();
+      curfew.setHours(20, 0, 0, 0);
+      if (now > curfew) {
+        document.getElementById("countdown").innerText = "IN EFFECT";
+        return;
+      }
+      const diff = curfew - now;
+      const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+      document.getElementById("countdown").innerText = `${h}:${m}:${s}`;
+    }
+    setInterval(updateCountdown, 1000);
+
+    function openLogin() {
+      document.getElementById('loginModal').style.display = 'block';
+    }
+
+    function closeLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function fakeLogin() {
+      alert("Access denied. Session logged.");
+      closeLogin();
+    }
+
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('easTone');
+      if (audio) {
+        // Essayer de jouer l'audio au chargement, mais bloqué par l'autoplay
+        console.warn("Autoplay prevented by browser.");
+        // Ajouter un événement d'interaction pour jouer le son lorsque l'utilisateur interagit
+        document.querySelector('.eas-dismiss').addEventListener('click', () => {
+          playEASAudio();
+        });
+      }
+    });
+</script>
+
+</body>
+</html>
