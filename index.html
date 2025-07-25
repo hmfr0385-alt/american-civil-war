@@ -286,9 +286,69 @@ footer a {
   color: #555;
 }
 
+/* Roleplay Warning Modal */
+.roleplay-warning-modal {
+  display: block;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.roleplay-warning-modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border: 4px solid #002D72;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+.roleplay-warning-modal-content h2 {
+  color: #002D72;
+  font-size: 1.5rem;
+}
+.roleplay-warning-modal-content p {
+  font-size: 1rem;
+  color: #333;
+}
+.roleplay-warning-modal-content button {
+  padding: 0.75rem 1.5rem;
+  background-color: #002D72;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+.roleplay-warning-modal-content .close-warning {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: #888;
+}
+
+
   </style>
 </head>
 <body>
+
+<div class="roleplay-warning-modal" id="roleplayWarningModal">
+  <div class="roleplay-warning-modal-content">
+    <span class="close-warning" onclick="closeWarning()">×</span>
+    <h2>⚠️ Warning: Roleplay Content</h2>
+    <p>This site contains roleplay and lore content created for fictional purposes. All scenarios, events, and characters are part of a narrative and not real-world events.</p>
+    <button onclick="acceptWarning()">Accept</button>
+  </div>
+</div>
+  
   <!-- Emergency Broadcast System -->
   <div class="eas-container" role="alert" aria-live="assertive">
     <div class="eas-flash"></div>
@@ -446,6 +506,18 @@ footer a {
       alert("Access denied. Session logged.");
       closeLogin();
     }
+
+    // Function to close the warning modal
+function closeWarning() {
+  document.getElementById('roleplayWarningModal').style.display = 'none';
+}
+
+// Function to accept the warning and close the modal
+function acceptWarning() {
+  document.getElementById('roleplayWarningModal').style.display = 'none';
+  // Optionally, you can store a cookie or use localStorage to remember the user accepted the warning
+}
+
 
     window.addEventListener('load', () => {
       const audio = document.getElementById('easTone');
